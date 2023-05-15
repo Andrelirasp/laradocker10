@@ -20,8 +20,8 @@ services:
     nginx:
         image: nginx:alpine
         restart: unless-stopped
-        ports: 
-            - "8989:80"
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
         volumes: 
             - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
